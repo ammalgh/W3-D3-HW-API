@@ -13,15 +13,18 @@ const resCodes = [
 
 let container = document.getElementById('cat-container');
 
-for (let i = 0; i < resCodes.length; i++) {
-    let linkElement = document.createElement('a');
-    linkElement.href = `${link}${resCodes[i]}`;
-    linkElement.target = "_blank"; // Open in a new tab
-    let  img = document.createElement('img');
-    img.src = `${link}${resCodes[i]}`;
-    img.alt = `HTTP ${resCodes[i]}`;
-    img.className = 'image';
-    linkElement.appendChild(img);
-    container.appendChild(linkElement);
+async function loadImages() {
+    for (let i = 0; i < resCodes.length; i++) {
+        let linkElement = document.createElement('a');
+        linkElement.href = `${link}${resCodes[i]}`;
+        linkElement.target = "_blank";  // Open in a new tab
+        let img = document.createElement('img');
+        img.src = `${link}${resCodes[i]}`;
+        img.alt = `cat ${resCodes[i]}`;
+        img.className = 'image';
+        linkElement.appendChild(img);
+        container.appendChild(linkElement);
+    }
 }
 
+loadImages();
